@@ -1,2 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.custom-table {
+  font: 100 0.7rem helvetica,sans-serif;
+  border-collapse: collapse;
+}
+
+tr              { border-bottom: 0.5px solid rgba(0,0,0,0.1); }
+tr:first-child  { background-color: rgba(0,0,0,0.05); }
+tr:last-child   { border-bottom: none; }
+
+th,td {
+  padding: 0.75rem 1.3rem;
+  text-align: center;
+}
+
+td { color: rgba(0,0,0,0.75); }
+
+th:nth-of-type(2), td:nth-of-type(2) { text-align: left; }
+
+.custom-label {
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  display: grid;
+  place-items: center;
+}
+
+.custom-input, .custom-checkbox {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border: 0.5px solid black;
+}
+
+.custom-input { display: none; }
+
+.custom-checkbox {
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.firstbox { border-width: 1.5px; }
+
+.custom-checkbox::after {
+  content: '✘';
+  position: absolute;
+  font-size: 0.6rem;
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.25s, opacity 0.5s;
+}
+
+.custom-input:checked ~ .custom-checkbox::after {
+  opacity: 1;
+  transform: scale(1);
+}
 
